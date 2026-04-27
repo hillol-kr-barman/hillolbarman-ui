@@ -1,0 +1,74 @@
+/* =============================================================================
+   Design Tokens — @hillolbarman/ui
+
+   Shared base. Each project imports this file, then overrides --color-accent
+   and the background tokens inside its own @theme block.
+
+   Resume Project:    --color-accent: #9eff1f  (green)
+   Git Visualiser:    --color-accent: #00d4dc  (cyan)
+   Grounded:          --color-accent: #f59e0b  (amber)
+   ============================================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
+
+:root {
+  /* ── Accent ─────────────────────────────────────────────────────────────────
+     Override both tokens per project.
+  ──────────────────────────────────────────────────────────────────────────── */
+  --color-accent:        #9eff1f;
+  --color-accent-strong: #7acc00;
+
+  /* ── Backgrounds ────────────────────────────────────────────────────────────
+     Override per project if the project has a distinct surface palette.
+  ──────────────────────────────────────────────────────────────────────────── */
+  --color-background:      #0d0f0e;
+  --color-background-soft: #1a1f1c;
+  --color-surface:         #161b18;
+  --color-surface-strong:  #1a1f1c;
+
+  /* ── Borders ────────────────────────────────────────────────────────────────
+     --color-border-strong derives from accent automatically via color-mix,
+     so it stays correct whenever a project overrides --color-accent.
+  ──────────────────────────────────────────────────────────────────────────── */
+  --color-border:        rgba(255, 255, 255, 0.07);
+  --color-border-strong: color-mix(in srgb, var(--color-accent) 30%, transparent);
+
+  /* ── Text ───────────────────────────────────────────────────────────────────
+     Shared across all projects — do not override unless intentional.
+  ──────────────────────────────────────────────────────────────────────────── */
+  --color-text:   #eef0f3;
+  --color-muted:  #9aa3b0;
+  --color-subtle: #6b7685;
+
+  /* ── Semantic ───────────────────────────────────────────────────────────────
+     --color-soft derives from accent automatically.
+  ──────────────────────────────────────────────────────────────────────────── */
+  --color-soft:    color-mix(in srgb, var(--color-accent) 9%, transparent);
+  --color-danger:  #f87171;
+  --color-success: #4ade80;
+
+  /* ── Typography ─────────────────────────────────────────────────────────────
+     All projects use Space Grotesk (sans) + DM Mono (mono).
+  ──────────────────────────────────────────────────────────────────────────── */
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "DM Mono", "SFMono-Regular", Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+
+  /* ── Named font sizes ───────────────────────────────────────────────────────
+     Use these instead of arbitrary rem values in JSX.
+
+     --text-ui      buttons, badges, nav items
+     --text-ui-sm   monospace chips, timestamps, secondary labels
+     --text-ui-xs   smallest badge / tag text
+  ──────────────────────────────────────────────────────────────────────────── */
+  --text-ui:    0.82rem;
+  --text-ui-sm: 0.72rem;
+  --text-ui-xs: 0.65rem;
+
+  /* ── Shadows ────────────────────────────────────────────────────────────────
+     Derive from accent so they stay consistent when accent is overridden.
+  ──────────────────────────────────────────────────────────────────────────── */
+  --shadow-button: 0 6px 20px color-mix(in srgb, var(--color-accent) 22%, transparent);
+  --shadow-panel:  none;
+}

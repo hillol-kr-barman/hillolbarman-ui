@@ -1,0 +1,26 @@
+/* =============================================================================
+   @hillolbarman/ui — styles
+
+   Import this file once in your project root CSS:
+
+     @import "@hillolbarman/ui/styles.css";
+
+   Then override accent and background tokens inside your own @theme block
+   to match your project's identity:
+
+     @theme {
+       --color-accent:          #00d4dc;
+       --color-accent-strong:   #00aeca;
+       --color-background:      #0e1012;
+       --color-background-soft: #1c2128;
+       --color-surface:         #161a1e;
+       --color-surface-strong:  #1c2128;
+     }
+
+   Every button, badge, card, and type-scale class will automatically
+   reflect the overridden accent colour — no further changes required.
+   ============================================================================= */
+
+@import "./tokens.css";
+@import "./type-scale.css";
+@import "./utilities.css";

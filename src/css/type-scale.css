@@ -1,0 +1,110 @@
+/* =============================================================================
+   Type Scale — @hillolbarman/ui
+
+   Semantic typography utility classes. Apply these in JSX instead of raw
+   font-size and colour values. All classes reference CSS tokens from
+   tokens.css so they respond to project-level overrides automatically.
+   ============================================================================= */
+
+/* ── Eyebrow ─────────────────────────────────────────────────────────────────
+   Small uppercase label used above headings to indicate section context.
+   Example: "Portfolio Project · Hillol Barman"
+────────────────────────────────────────────────────────────────────────────── */
+.type-eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-ui-sm);
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-accent) 70%, transparent);
+}
+
+/* ── Hero ────────────────────────────────────────────────────────────────────
+   Large display heading. Used on landing pages and hero sections only.
+────────────────────────────────────────────────────────────────────────────── */
+.type-hero {
+  font-family: var(--font-mono);
+  font-size: clamp(1.875rem, 5vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  color: #ffffff;
+}
+
+/* ── Page title ──────────────────────────────────────────────────────────────
+   Top-level heading on a page (h1 equivalent in page context).
+────────────────────────────────────────────────────────────────────────────── */
+.type-page-title {
+  font-family: var(--font-mono);
+  font-size: clamp(1.5rem, 3vw, 1.875rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  color: #ffffff;
+}
+
+/* ── Section title ───────────────────────────────────────────────────────────
+   Heading for a major section within a page.
+────────────────────────────────────────────────────────────────────────────── */
+.type-section-title {
+  font-family: var(--font-mono);
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  color: #ffffff;
+}
+
+/* ── Card title ──────────────────────────────────────────────────────────────
+   Heading inside a card or compact panel.
+────────────────────────────────────────────────────────────────────────────── */
+.type-card-title {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #ffffff;
+}
+
+/* ── Body ────────────────────────────────────────────────────────────────────
+   Standard paragraph / descriptive text.
+────────────────────────────────────────────────────────────────────────────── */
+.type-body {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--color-muted);
+}
+
+/* ── Body strong ─────────────────────────────────────────────────────────────
+   Slightly emphasised body text — used for secondary headings or callouts
+   that need more weight than muted text but less than a heading.
+────────────────────────────────────────────────────────────────────────────── */
+.type-body-strong {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.7;
+  color: #d1d5db;
+}
+
+/* ── Label ───────────────────────────────────────────────────────────────────
+   Form labels, table headers, and small descriptive text above inputs.
+────────────────────────────────────────────────────────────────────────────── */
+.type-label {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+/* ── Reduced motion ─────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .type-hero,
+  .type-page-title,
+  .type-section-title {
+    letter-spacing: -0.015em;
+  }
+}
