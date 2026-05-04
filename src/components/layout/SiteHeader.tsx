@@ -92,7 +92,7 @@ export default function SiteHeader({
               href={item.href}
               onClick={(e) => handleNavigate(e, item.href)}
               aria-current={currentPath === item.href ? 'page' : undefined}
-              className={`group text-xs/6 font-medium transition duration-300 ${currentPath === item.href ? 'text-accent' : 'text-white'}`}
+              className={`group text-xs/6 font-medium transition duration-300 hover:opacity-100 ${currentPath === item.href ? 'text-accent' : 'text-white'}`}
             >
               {item.name}
               <span
@@ -110,7 +110,7 @@ export default function SiteHeader({
                   <span className="text-xs font-medium text-background">{firstName.slice(0, 1)}</span>
                 </span>
                 <div className="ml-3">
-                  <p className="text-xs font-medium text-gray-300">{firstName}</p>
+                  <p className="text-xs font-medium text-gray-300 mb-0">{firstName}</p>
                   <button type="button" onClick={openLogoutDialog} className="text-xs/6 font-semibold text-white">
                     Log out <span aria-hidden="true">&rarr;</span>
                   </button>

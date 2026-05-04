@@ -28,7 +28,7 @@ export default function SiteFooter({ navItems, socials, ownerName, copyrightSuff
             </a>
           ))}
         </div>
-        <p className="mt-8 text-center text-xs text-muted">
+        <p className="mt-12 text-center text-xs text-muted">
           &copy; {year} {ownerName}{copyrightSuffix ? `. ${copyrightSuffix}` : ''}
         </p>
       </div>
