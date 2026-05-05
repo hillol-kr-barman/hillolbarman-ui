@@ -110,8 +110,8 @@ export default function SiteHeader({
                   <span className="text-xs font-medium text-background">{firstName.slice(0, 1)}</span>
                 </span>
                 <div className="ml-3">
-                  <p className="text-xs font-medium text-gray-300 mb-0">{firstName}</p>
-                  <button type="button" onClick={openLogoutDialog} className="text-xs/6 font-semibold text-white">
+                  <div className="text-xs font-medium text-gray-300 leading-none">{firstName}</div>
+                  <button type="button" onClick={openLogoutDialog} className="text-xs leading-none font-semibold text-white">
                     Log out <span aria-hidden="true">&rarr;</span>
                   </button>
                 </div>
