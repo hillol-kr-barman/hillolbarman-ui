@@ -13,6 +13,8 @@ interface SiteHeaderProps {
   currentUser?: AuthUser | null
   onNavigate?: (to: string) => void
   onLogout?: () => void
+  /** Classes applied to the inner content wrapper. Defaults to 'mx-16 px-6'. Override to change the inner layout e.g. 'px-4 sm:px-8' for full-width projects. */
+  containerClassName?: string
 }
 
 export default function SiteHeader({
@@ -24,6 +26,7 @@ export default function SiteHeader({
   currentUser,
   onNavigate,
   onLogout,
+  containerClassName = 'mx-16 px-6',
 }: SiteHeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [logoutDialogOpen, setLogoutDialogOpen] = useState(false)
@@ -54,7 +57,8 @@ export default function SiteHeader({
   const loginPath = `/login${currentPath !== '/' ? `?redirect=${encodeURIComponent(currentPath)}` : ''}`
 
   return (
-    <header className={`mx-16 sticky top-0 z-100 flex items-center h-14 px-6 border-b shrink-0 transition-all duration-300 ${scrolled ? 'border-border bg-[rgba(13,15,14,0.72)] backdrop-blur-md' : 'border-transparent bg-transparent'}`}>
+    <header className={`w-full sticky top-0 z-100 shrink-0 border-b transition-all duration-300 ${scrolled ? 'border-border bg-[rgba(13,15,14,0.72)] backdrop-blur-md' : 'border-transparent bg-transparent'}`}>
+      <div className={`flex items-center h-14 ${containerClassName}`}>
 
       {/* Brand */}
       <div className="flex items-center gap-2.5 flex-1 min-w-0">
@@ -136,6 +140,7 @@ export default function SiteHeader({
             <Bars3Icon className="size-5" aria-hidden="true" />
           </button>
         )}
+      </div>
       </div>
 
       {/* Mobile menu */}
