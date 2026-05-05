@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from 'react'
+import { useState, useEffect, type ReactNode } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import type { AuthUser, NavItem } from '../../types'
@@ -27,6 +27,13 @@ export default function SiteHeader({
 }: SiteHeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [logoutDialogOpen, setLogoutDialogOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   const handleNavigate = (e: React.MouseEvent<HTMLAnchorElement>, to: string) => {
     e.preventDefault()
@@ -47,7 +54,7 @@ export default function SiteHeader({
   const loginPath = `/login${currentPath !== '/' ? `?redirect=${encodeURIComponent(currentPath)}` : ''}`
 
   return (
-    <header className="sticky top-0 z-[100] flex items-center h-14 px-6 border-b border-border bg-[rgba(13,15,14,0.88)] backdrop-blur-[12px] shrink-0">
+    <header className={`mx-16 sticky top-0 z-100 flex items-center h-14 px-6 border-b shrink-0 transition-all duration-300 ${scrolled ? 'border-border bg-[rgba(13,15,14,0.72)] backdrop-blur-md' : 'border-transparent bg-transparent'}`}>
 
       {/* Brand */}
       <div className="flex items-center gap-2.5 flex-1 min-w-0">
