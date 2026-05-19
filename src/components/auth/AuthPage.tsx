@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { ArrowLongLeftIcon } from '@heroicons/react/20/solid'
 import type { AuthUser } from '../../types'
-import BackgroundBeams from '../ui/BackgroundBeams'
 
 type AuthMode = 'login' | 'register' | 'forgot-password' | 'reset-password'
 
@@ -177,8 +176,6 @@ export default function AuthPage({
 
   return (
     <div className="relative flex min-h-screen flex-col justify-center px-4 py-4 sm:px-5 lg:px-6">
-      <BackgroundBeams className="-z-10" />
-
       <div className="grid grid-cols-3 items-center sm:mx-auto sm:w-full sm:max-w-md">
         <div className="justify-self-start px-1 py-1 sm:px-3.5">
           <button
