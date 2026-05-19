@@ -57,7 +57,8 @@ export default function SiteHeader({
   const loginPath = `/login${currentPath !== '/' ? `?redirect=${encodeURIComponent(currentPath)}` : ''}`
 
   return (
-    <header className={`w-full sticky top-0 z-100 shrink-0 border-b transition-all duration-300 ${scrolled ? 'border-border bg-[rgba(13,15,14,0.72)] backdrop-blur-md' : 'border-transparent bg-transparent'}`}>
+    <>
+    <header className={`w-full fixed top-0 z-100 shrink-0 border-b transition-[background-color,border-color,backdrop-filter] duration-300 ${scrolled ? 'border-border bg-[rgba(13,15,14,0.72)] backdrop-blur-md' : 'border-transparent bg-transparent'}`}>
       <div className={`flex items-center transition-[height] duration-300 ${scrolled ? 'h-14' : 'h-18'} ${containerClassName}`}>
 
       {/* Brand */}
@@ -227,5 +228,7 @@ export default function SiteHeader({
         />
       )}
     </header>
+    <div className={`w-full shrink-0 transition-[height] duration-300 ${scrolled ? 'h-14' : 'h-18'}`} aria-hidden="true" />
+    </>
   )
 }
